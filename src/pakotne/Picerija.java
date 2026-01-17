@@ -1,19 +1,111 @@
 package pakotne;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 import java.util.regex.Pattern;
+
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JWindow;
+import javax.swing.SwingConstants;
 
 public class Picerija {
+	
+public static void sakumaEkrans(){
+	JFrame frame = new JFrame("Pizza Cooker Menu");
+	
+    frame.setSize(400, 300);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setLocationRelativeTo(null);
+    
+    //Tituls
+    JLabel title = new JLabel("Pizza Cooker", SwingConstants.CENTER);
+    title.setFont(new Font("Arial", Font.BOLD, 20));
+    frame.add(title, BorderLayout.NORTH);
+    	
+    JPanel panel = new JPanel();
+    panel.setLayout(new GridLayout(3, 1, 10, 10));
+    panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20 ,20));
+    panel.setBackground(new Color(240, 240, 240));
+    
+    ImageIcon raw = new ImageIcon("Registret.png");
+    Image scaled = raw.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+    ImageIcon icon = new ImageIcon(scaled);
+
+    JButton btnNew = new JButton("Reģistrēt pasūtījumu", icon);
+    btnNew.setHorizontalTextPosition(SwingConstants.RIGHT);
+    btnNew.setIconTextGap(10);
+
+    raw = new ImageIcon("Aktivie.png");
+    scaled = raw.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+    icon = new ImageIcon(scaled);
+
+    JButton btnAktivie = new JButton("Aktīvie pasūtījumi", icon);
+    btnAktivie.setHorizontalTextPosition(SwingConstants.RIGHT);
+    btnAktivie.setIconTextGap(10);
+    
+    raw = new ImageIcon("Nodotie.png");
+    scaled = raw.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+    icon = new ImageIcon(scaled);
+
+    JButton btnNodotie = new JButton("Nodotie pasūtījumi", icon);
+    btnNodotie.setHorizontalTextPosition(SwingConstants.RIGHT);
+    btnNodotie.setIconTextGap(10);
+    
+    //Reģistrēt jaunu poga
+    btnNew.setFocusPainted(false);
+    btnNew.setFont(new Font("Arial", Font.BOLD, 17));
+    btnNew.setBackground(new Color(220, 220, 255));
+    btnNew.setOpaque(false);
+    
+    btnNew.addActionListener(e -> {
+        Pica.pasutijums();
+    });
+
+    //Aktīvie poga
+    btnAktivie.setFocusPainted(false);
+    btnAktivie.setFont(new Font("Arial", Font.BOLD, 17));
+    btnAktivie.setBackground(new Color(220, 220, 255));
+    btnAktivie.setOpaque(false);
+    
+    btnAktivie.addActionListener(e -> {
+    	DarbsArFailu.nolasitAkt();
+    });
+    
+    //Nodotie poga
+    btnNodotie.setFocusPainted(false);
+    btnNodotie.setFont(new Font("Arial", Font.BOLD, 17));
+    btnNodotie.setBackground(new Color(220, 220, 255));
+    btnNodotie.setOpaque(false);
+    
+    btnNodotie.addActionListener(e -> {
+    	DarbsArFailu.nolasit();
+    });
+    
+    panel.add(btnNew);
+    
+    
+
+    panel.add(btnAktivie);
+    panel.add(btnNodotie);
+
+    frame.add(panel);
+    frame.setVisible(true);
+}
+
 	
 	public static class loading {
 
