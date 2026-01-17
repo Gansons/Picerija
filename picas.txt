@@ -1,0 +1,25 @@
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: M (18")
+Gaļa: Lielops
+Mērce: BBQ mērce
+Topingi: Baziliks
+Siers: Jā
+
+Uzkodas/dzērieni:
+Dzēriens: Kola
+Uzkodas: soyas nageti
+------
+Līdzņemšana: Nē
+Piegāde: Nē
+
+Cena: 13.5 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++

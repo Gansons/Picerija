@@ -1,26 +1,31 @@
 package pakotne;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 public class Pica {
 	
 	
 
+	private static boolean b;
+
 	public static void main(String[] args) {
 		
 		String izvele, Gala =  "", merce = "",adresse = "", telefonaNR = "", Vards = "", nosaukums = "", izmers = "", topingi ="", dzeriens = "", uzkoda = "";
 		double laiks, cena;
-		boolean siers, lidznemt, piegade ;
+		boolean siers = false, lidznemt = false, piegade = false ;
 		Pica pizza = null;
 		
 		String[] darbibas = {"Veikt sūtījumu","Nolasīt picas atrabūtus", "Mainīt atrabūtus",
 				"Cept picu ilgāk", "Nodotie pasūtījumi", "Aktīvie pasūtījumi", "Apturēt", "Atcelt pasūtījumu"};
-		String[] izmeri =  {"L","M","S"};
+		String[] izmeri =  {"L (24\")","M (18\")","S (15\")"};
     	String[] galas = {"Bez gaļas","Bekons","Vista", "Lielops","Krokodils","Zivs"};
     	String[] merces = {"Bez mērces","Kečups","Majonēze", "BBQ mērce","Ķiploku mērce"};
     	String[] citi = {"Bez topingiem","Šampinjoni","Baziliks","Ananāsi","Banāni"};
     	String[] dzerieni = {"Bez dzeramā","Kola","Sprite","Kvass"};
     	String[] uzkodas = {"Bez uzkodas","nageti","friškas","soyas nageti"};
+    	ArrayList<pizza> PicaList = new ArrayList<>();
     	
 		do {
 			izvele = (String)JOptionPane.showInputDialog(null, "Darbības izvēle", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, darbibas, darbibas[0]);
@@ -46,7 +51,8 @@ public class Pica {
 		    //Papildus opcijas =====================
 		            lidznemt = JOptionPane.showConfirmDialog(null, "Vai būs papildus uzkodas vai dzēriens?") == 0;
 		            if (!lidznemt) {
-			            
+			            dzeriens = "Bez dzeramā";
+			            uzkoda = "Bez uzkodas";
 			            
 			        } else {
 			        	dzeriens = (String) JOptionPane.showInputDialog(null, "Izvēlies papildus dzeramo", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, dzerieni, dzerieni[0]);;
@@ -75,15 +81,22 @@ public class Pica {
 
 		        
 		           // nosaukums = JOptionPane.showInputDialog("Ievadi picas nosaukumu:");
+		        
+		        if (uzkoda == null) uzkoda = "Bez uzkodas";
+		        if (dzeriens == null) dzeriens = "Bez dzeramā";
+		        if (topingi == null) topingi = "Bez topingiem";
+
 
 		       
-		        Picerija.pasutijums(izmers, Gala, merce, adresse, telefonaNR, Vards, nosaukums, siers,  lidznemt, piegade, topingi, dzeriens, uzkoda);
+		        Picerija.pasutijums(izmers, Gala, merce, adresse, telefonaNR, Vards, siers,  lidznemt, piegade, topingi, dzeriens, uzkoda);
+		        b = PicaList.add(new pizza(((String) izmers), Gala, merce, adresse, telefonaNR, Vards, siers, lidznemt, piegade, topingi, dzeriens, uzkoda));
+		        DarbsArFailu.saglabat(PicaList);
 			    break;
 		
 		case "Nolasīt picas atrabūtus":
-			//if(()) {
-				//Nolasa atrabūtus
-			//}else	
+			if(!PicaList.isEmpty())
+				JOptionPane.showMessageDialog(null, PicaList);
+			else
 				JOptionPane.showMessageDialog(null, "Pica nav izveidota", "Kļūda", JOptionPane.INFORMATION_MESSAGE);
 			break;
 			
@@ -91,12 +104,12 @@ public class Pica {
 			//metode, kas ļauj mainīt atrabūtus picai
 			break;
 			
-		case "Cept picu ilgāk":
-			//Metode kas cep picu ilgāk, ja laiks >= 20, tad pica apdeg
+		case "Izsaukt picas metodes":
+			
 			break;
 			
 		case "Nodotie pasūtījumi":
-			//Nolasa no faila nodotās picas
+			DarbsArFailu.nolasit();
 			break;
 			
 		case "Aktīvie pasūtījumi":

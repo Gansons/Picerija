@@ -71,7 +71,7 @@ public class Picerija {
     static void pasutijums(String izmers, String Gala, String merce,
                              String adresse, String telefonaNR,
                              String 
-                             Vards, String nosaukums, boolean siers, boolean lidznemt, boolean piegade, String topingi, String dzeriens, String uzkoda) {
+                             Vards, boolean siers, boolean lidznemt, boolean piegade, String topingi, String dzeriens, String uzkoda) {
 
         double cena = aprekinatCenu(izmers, Gala, merce, topingi, lidznemt, piegade, siers, dzeriens, uzkoda);
 
@@ -81,12 +81,17 @@ public class Picerija {
                 "Klients: " + Vards + "\n" +
                 "Telefons: " + telefonaNR + "\n" +
                 "Adrese: " + adresse + "\n\n" +
-                "Pica: " + nosaukums + "\n" +
+                "------\n"+
+                "Pica: \n" +
                 "Izmērs: " + izmers + "\n" +
                 "Gaļa: " + Gala + "\n" +
                 "Mērce: " + merce + "\n" +
                 "Topingi: "+ topingi + "\n" +
                 "Siers: " + (siers ? "Jā" : "Nē") + "\n\n" +
+                "Uzkodas/dzērieni:\n"+
+                "Dzēriens: "+ dzeriens + "\n" +
+                "Uzkodas: "+ uzkoda + "\n" +
+                "------\n"+
                 "Līdzņemšana: " + (lidznemt ? "Jā" : "Nē") + "\n" +
                 "Piegāde: " + (piegade ? "Jā" : "Nē") + "\n\n" +
                 "Cena: " + cena + " EUR\n" +
@@ -98,13 +103,19 @@ public class Picerija {
 
     static double aprekinatCenu(String izmers, String Gala, String merce, String topingi,
                                 boolean siers, boolean lidznemt, boolean piegade, String dzeriens , String uzkoda) {
+    	if (izmers == null) izmers = "";
+    	if (Gala == null) Gala = "";
+    	if (merce == null) merce = "";
+    	if (topingi == null) topingi = "Bez topingiem";
+    	if (dzeriens == null) dzeriens = "Bez dzeramā";
+    	if (uzkoda == null) uzkoda = "Bez uzkodas";
 
         double cena = 5.0;
 
         switch (izmers.toUpperCase()) {
-            case "L": cena += 4; break;
-            case "M": cena += 2; break;
-            case "S": cena += 0; break;
+            case "L (24\\\")": cena += 6; break;
+            case "M (18\\\")": cena += 4; break;
+            case "S (15\\\")": cena += 2; break;
         }
 
         if (!Gala.equalsIgnoreCase("Bez gaļas")) cena += 1.5;
