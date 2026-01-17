@@ -15,6 +15,7 @@ import javax.swing.ScrollPaneConstants;
 public class DarbsArFailu {
 
 static String failaNosaukums = "picas.txt";
+static String AktiviePasut = "AktiviePas.txt";
 	
 	public static void saglabat(ArrayList<pizza> picaList) {
 		try {
@@ -34,6 +35,27 @@ static String failaNosaukums = "picas.txt";
 		String teksts, str = "";
 		try {
 			FileReader fr = new FileReader(failaNosaukums);
+			BufferedReader br = new BufferedReader(fr);
+			while((teksts = br.readLine()) !=null) {
+				str += teksts+"\n";
+			}
+			br.close();
+			
+			JTextArea ta = new JTextArea(str,10, 40);
+			ta.setEditable(false);
+			JScrollPane sp = new JScrollPane(ta);
+			sp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+			JOptionPane.showMessageDialog(ta, sp, "Saglabātās picas", JOptionPane.PLAIN_MESSAGE);
+		}catch(IOException e) {
+			JOptionPane.showMessageDialog(null, "Kūda nolasot failu!", "Kļūda", JOptionPane.ERROR_MESSAGE);
+			}
+	}
+	
+	
+	public static void nolasitAkt() {
+		String teksts, str = "";
+		try {
+			FileReader fr = new FileReader(AktiviePasut);
 			BufferedReader br = new BufferedReader(fr);
 			while((teksts = br.readLine()) !=null) {
 				str += teksts+"\n";

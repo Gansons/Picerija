@@ -1,17 +1,44 @@
 package pakotne;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 import java.util.regex.Pattern;
-
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
+import javax.swing.JWindow;
 
 public class Picerija {
+	
+	public static class loading {
+
+		public static void show() {
+		    JWindow splash = new JWindow();
+
+		    ImageIcon icon = new ImageIcon("Loading.gif");
+		    Image scaled = icon.getImage().getScaledInstance(300, 300, Image.SCALE_DEFAULT);
+		    ImageIcon resizedIcon = new ImageIcon(scaled);
+
+		    JLabel gif = new JLabel(resizedIcon);
+		    splash.add(gif);
+
+		    splash.pack();
+		    splash.setLocationRelativeTo(null);
+		    splash.setVisible(true);
+
+		    try {
+		        Thread.sleep(3000);
+		    } catch (InterruptedException e) {}
+
+		    splash.dispose();
+		}
+
+	}
 
 	static String virknesParbaude(String zinojums, String nokl) {
         String ievade;
@@ -82,6 +109,8 @@ public class Picerija {
 
         double cena = aprekinatCenu(izmers, Gala, merce, topingi, lidznemt, piegade, siers, dzeriens, uzkoda);
 
+        
+        
         String zinjojums =
                 "Picas pasūtījums\n" +
                 "=========================\n" +

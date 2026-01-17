@@ -1,4 +1,3 @@
-[Picas pasūtījums
 =========================
 Klients: Jānis
 Telefons: 
@@ -22,4 +21,3 @@ Piegāde: Nē
 Cena: 13.5 EUR
 =========================
 Paldies par pasūtījumu!]
-+++++++++++++++++++++++++++++++++++++++++++++
