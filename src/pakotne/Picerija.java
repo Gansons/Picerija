@@ -1,8 +1,15 @@
 package pakotne;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 import java.util.regex.Pattern;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 
 public class Picerija {
 
@@ -128,4 +135,46 @@ public class Picerija {
 
         return cena;
     }
+    
+    public static void showProgressTimer(int seconds,  Runnable izcepts) {
+        JFrame frame = new JFrame("Picas cepšana");
+        frame.setSize(300, 120);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        JProgressBar bar = new JProgressBar(0, seconds);
+        bar.setValue(seconds);
+        bar.setStringPainted(true);
+
+        //JLabel label = new JLabel("Atlikušais laiks: " + seconds + " s", JLabel.CENTER);
+        
+
+        frame.setLayout(new java.awt.BorderLayout());
+        //frame.add(label, java.awt.BorderLayout.NORTH);
+        frame.add(bar, java.awt.BorderLayout.CENTER);
+        
+        frame.setVisible(true);
+
+        Timer timer = new Timer(1000, new ActionListener() {
+            int timeLeft = seconds;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                timeLeft--;
+                bar.setValue(timeLeft);
+                bar.setString("Atlikušais laiks: " + timeLeft + " s");
+                //label.setText("Atlikušais laiks: " + timeLeft + " s");
+
+                if (timeLeft <= 0) {
+                    ((Timer)e.getSource()).stop();
+                    frame.dispose();
+                    izcepts.run();
+                    
+                }
+            }
+        });
+
+        timer.start();
+    }
+
 }

@@ -23,7 +23,6 @@ static String failaNosaukums = "picas.txt";
 		pw.println(picaList.toString());
 		pw.println("+++++++++++++++++++++++++++++++++++++++++++++");
 		pw.close();
-		JOptionPane.showMessageDialog(null, "Ierakstīts failā: "+failaNosaukums);
 		
 	} catch(IOException e) {
 			JOptionPane.showMessageDialog(null, "Kūda ierakstot failā!", "Kļūda", JOptionPane.ERROR_MESSAGE);

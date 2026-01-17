@@ -74,6 +74,9 @@ public class pizza {
 			return uzkoda;	
 		}
 		
+	
+
+		
 	public String  toString() {
 		return  "Picas pasūtījums\n" +
                 "=========================\n" +
@@ -98,5 +101,7 @@ public class pizza {
                 "Paldies par pasūtījumu!";
 	}
 	
+	
 
+    
 }
