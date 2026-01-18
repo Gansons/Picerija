@@ -74,7 +74,20 @@ public class pizza {
 			return uzkoda;	
 		}
 		
-	
+		private int cepts = 0;
+
+		public int getCepts() {
+		    return cepts;
+		}
+
+		public void addCepts() {
+		    cepts++;
+		}
+
+		public void resetCepts() {
+		    cepts = 0;
+		}
+
 
 		
 	public String  toString() {

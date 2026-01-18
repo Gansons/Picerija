@@ -3,7 +3,7 @@ package pakotne;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-
+//Main
 public class Pica {
 	
 	static String[] izmeri = {"L (24\")","M (18\")","S (15\")"};
@@ -110,20 +110,20 @@ public class Pica {
   			}
   		    Picerija.pasutijums(izmers, Gala, merce, adresse, telefonaNR, Vards, siers,
   		            lidznemt, piegade, topingi, dzeriens, uzkoda);
+  		    
+  		  pizza p = new pizza(izmers, Gala, merce, adresse, telefonaNR, Vards,
+  		        siers, lidznemt, piegade, topingi, dzeriens, uzkoda);
+
 
   		    Picerija.showProgressTimer(15, () -> {
   		        JOptionPane.showMessageDialog(null, "Tavs pasūtījums ir gatavs!");
-  		    });
-
-  		    PicaList.add(new pizza(izmers, Gala, merce, adresse, telefonaNR, Vards,
-  		            siers, lidznemt, piegade, topingi, dzeriens, uzkoda));
-
+  		        
+  		        PicaList.add(p);
   		    DarbsArFailu.saglabat(PicaList);
+  		    });
+  		    
   		}
-  		
-  		
   		public static void aktivieSutijumi() {//-----------------
-  			
   				 String[] pasutijumi = new String[PicaList.size()];	
   			    for (int i = 0; i < PicaList.size(); i++) {
   			        pasutijumi[i] = (i+1) + ". " + PicaList.get(i).noteiktVardu() + " - " + PicaList.get(i).noteiktIzm();
@@ -134,23 +134,18 @@ public class Pica {
 
   		    int index = Integer.parseInt(izvele.split("\\.")[0]) - 1;
   		    pizza p = PicaList.get(index);
-
-  		    String[] opcijas = {"Izcept", "Nodot", "Atpakaļ"};
+  		    
+  		    
+  		    String[] opcijas = {"Nodot", "Atpakaļ"};
   		    String darbiba = (String) JOptionPane.showInputDialog(
   		            null, p.toString(),"Pasūtījuma darbības", JOptionPane.QUESTION_MESSAGE,null, opcijas,opcijas[0]);
-
-  		    if ("Izcept".equals(darbiba)) {
-  		        Picerija.showProgressTimer(15, () -> {
-  		            JOptionPane.showMessageDialog(null, "Pica izcepta!");
-  		        });
-  		    }
-
+  		   
+  		   
   		    if ("Nodot".equals(darbiba)) {
   		        PicaList.remove(index);
   		        JOptionPane.showMessageDialog(null, "Pasūtījums nodots!");
   		    }
   		}
-
 
 	public static void main(String[] args) {
 
@@ -160,7 +155,6 @@ public class Pica {
 		//Sākuma ekrāns
 		ui.sakumaEkrans();
 
-		
 	}
 
 }

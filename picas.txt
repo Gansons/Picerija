@@ -118,3 +118,195 @@ Cena: 17.5 EUR
 =========================
 Paldies par pasūtījumu!]
 +++++++++++++++++++++++++++++++++++++++++++++
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: L (24")
+Gaļa: Bez gaļas
+Mērce: Bez mērces
+Topingi: Bez topingiem
+Siers: Jā
+Uzkodas/dzērieni:
+Dzēriens: Bez dzeramā
+Uzkodas: Bez uzkodas
+------
+Līdzņemšana: Nē
+Piegāde: Nē
+
+Cena: 12.0 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: L (24")
+Gaļa: Krokodils
+Mērce: Kečups
+Topingi: Baziliks
+Siers: Jā
+Uzkodas/dzērieni:
+Dzēriens: Bez dzeramā
+Uzkodas: Bez uzkodas
+------
+Līdzņemšana: Jā
+Piegāde: Nē
+
+Cena: 15.0 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: L (24")
+Gaļa: Bez gaļas
+Mērce: Bez mērces
+Topingi: Bez topingiem
+Siers: Nē
+Uzkodas/dzērieni:
+Dzēriens: Bez dzeramā
+Uzkodas: Bez uzkodas
+------
+Līdzņemšana: Nē
+Piegāde: Nē
+
+Cena: 11.0 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: L (24")
+Gaļa: Bez gaļas
+Mērce: Bez mērces
+Topingi: Bez topingiem
+Siers: Nē
+Uzkodas/dzērieni:
+Dzēriens: Bez dzeramā
+Uzkodas: Bez uzkodas
+------
+Līdzņemšana: Nē
+Piegāde: Nē
+
+Cena: 11.0 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: L (24")
+Gaļa: Bez gaļas
+Mērce: Bez mērces
+Topingi: Bez topingiem
+Siers: Nē
+Uzkodas/dzērieni:
+Dzēriens: Bez dzeramā
+Uzkodas: Bez uzkodas
+------
+Līdzņemšana: Nē
+Piegāde: Nē
+
+Cena: 11.0 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: L (24")
+Gaļa: Bez gaļas
+Mērce: Bez mērces
+Topingi: Bez topingiem
+Siers: Nē
+Uzkodas/dzērieni:
+Dzēriens: Bez dzeramā
+Uzkodas: Bez uzkodas
+------
+Līdzņemšana: Nē
+Piegāde: Nē
+
+Cena: 11.0 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: L (24")
+Gaļa: Bez gaļas
+Mērce: Bez mērces
+Topingi: Bez topingiem
+Siers: Nē
+Uzkodas/dzērieni:
+Dzēriens: Bez dzeramā
+Uzkodas: Bez uzkodas
+------
+Līdzņemšana: Nē
+Piegāde: Nē
+
+Cena: 11.0 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: L (24")
+Gaļa: Bez gaļas
+Mērce: Bez mērces
+Topingi: Bez topingiem
+Siers: Nē
+Uzkodas/dzērieni:
+Dzēriens: Bez dzeramā
+Uzkodas: Bez uzkodas
+------
+Līdzņemšana: Nē
+Piegāde: Nē
+
+Cena: 11.0 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++

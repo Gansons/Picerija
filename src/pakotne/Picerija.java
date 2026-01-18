@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
+//Izveides metodse
 public class Picerija {
 
 		public static int jautajums(String teksts) {
