@@ -1,0 +1,96 @@
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: L (24")
+Gaļa: Bez gaļas
+Mērce: Bez mērces
+Topingi: Bez topingiem
+Siers: Nē
+Uzkodas/dzērieni:
+Dzēriens: Bez dzeramā
+Uzkodas: Bez uzkodas
+------
+Līdzņemšana: Nē
+Piegāde: Nē
+
+Cena: 11.0 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: L (24")
+Gaļa: Vista
+Mērce: Kečups
+Topingi: Baziliks
+Siers: Jā
+Uzkodas/dzērieni:
+Dzēriens: Kola
+Uzkodas: friškas
+------
+Līdzņemšana: Nē
+Piegāde: Nē
+
+Cena: 19.5 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: +37134343434
+Adrese: Bērzu gatve 4
+
+------
+Pica: 
+Izmērs: L (24")
+Gaļa: Krokodils
+Mērce: Kečups
+Topingi: Banāni
+Siers: Jā
+Uzkodas/dzērieni:
+Dzēriens: Sprite
+Uzkodas: friškas
+------
+Līdzņemšana: Jā
+Piegāde: Jā
+
+Cena: 21.5 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: M (18")
+Gaļa: Vista
+Mērce: Ķiploku mērce
+Topingi: Bez topingiem
+Siers: Nē
+Uzkodas/dzērieni:
+Dzēriens: Bez dzeramā
+Uzkodas: Bez uzkodas
+------
+Līdzņemšana: Nē
+Piegāde: Nē
+
+Cena: 11.0 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++

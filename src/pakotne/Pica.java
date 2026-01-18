@@ -15,41 +15,7 @@ public class Pica {
 	static ArrayList<pizza> PicaList = new ArrayList<>();
 	static String[] izvelne = {"Cept ilgāk","Nolasīt picas atrabūtus" ,"Mainīt atrabūtus"};
 	
-	
-	
-	public static void picaMetodes() {
-		String izvele = (String)JOptionPane.showInputDialog(null, "metodes izvēle", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, izvelne, izvelne[0]);
-		int laiks = 15;
-		if(izvele == null)
-			izvele = "Apturēt";
-	
-	switch(izvele) {
-	
-	case "Nolasīt picas atrabūtus":
-		if(!PicaList.isEmpty())
-			JOptionPane.showMessageDialog(null, PicaList);
-		else
-			JOptionPane.showMessageDialog(null, "Pica nav izveidota", "Kļūda", JOptionPane.INFORMATION_MESSAGE);
-		break;
-		
-	case "Cept ilgāk":
-		if(!PicaList.isEmpty()) {
-			laiks =+ 10;
-			Picerija.showProgressTimer(laiks, () -> {});
-		if(laiks >= 45)
-			JOptionPane.showMessageDialog(null, "Pica apdega!","Ak nē!", JOptionPane.WARNING_MESSAGE);
-		}else
-			JOptionPane.showMessageDialog(null, "Nav picas ko ilgāk cept!", "Kļūda", JOptionPane.ERROR_MESSAGE);
-		break;
-		
-	case "Nodot pasūtījumu":
-		PicaList.clear();
-		JOptionPane.showMessageDialog(null, "Pica tika nodota!");
-		break;
-		
-		
-	}}	
-  		public static void pasutijums() {
+  		public static void pasutijums() {//---------
   			String izmers = null, merce = null, Gala = null, topingi = null, dzeriens = null, uzkoda = null, Vards = null, adresse = null, telefonaNR = null;
   			int siers = 0;
   			boolean piegade = false;
@@ -154,6 +120,37 @@ public class Pica {
 
   		    DarbsArFailu.saglabat(PicaList);
   		}
+  		
+  		
+  		public static void aktivieSutijumi() {//-----------------
+  			
+  				 String[] pasutijumi = new String[PicaList.size()];	
+  			    for (int i = 0; i < PicaList.size(); i++) {
+  			        pasutijumi[i] = (i+1) + ". " + PicaList.get(i).noteiktVardu() + " - " + PicaList.get(i).noteiktIzm();
+  			    }
+  			    
+  			  String izvele = (String) JOptionPane.showInputDialog( null,"Izvēlies pasūtījumu", "Aktīvie pasūtījumi", JOptionPane.QUESTION_MESSAGE, null , pasutijumi,pasutijumi[0]);
+  			 if (izvele == null) return;
+
+  		    int index = Integer.parseInt(izvele.split("\\.")[0]) - 1;
+  		    pizza p = PicaList.get(index);
+
+  		    String[] opcijas = {"Izpildīt", "Nodot", "Atpakaļ"};
+  		    String darbiba = (String) JOptionPane.showInputDialog(
+  		            null, p.toString(),"Pasūtījuma darbības", JOptionPane.QUESTION_MESSAGE,null, opcijas,opcijas[0]);
+
+  		    if ("Izcept".equals(darbiba)) {
+  		        Picerija.showProgressTimer(15, () -> {
+  		            JOptionPane.showMessageDialog(null, "Pica izcepta!");
+  		        });
+  		    }
+
+  		    if ("Nodot".equals(darbiba)) {
+  		        PicaList.remove(index);
+  		        JOptionPane.showMessageDialog(null, "Pasūtījums nodots!");
+  		    }
+  		}
+
 
 	public static void main(String[] args) {
 		

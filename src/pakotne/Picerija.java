@@ -38,7 +38,7 @@ public static void sakumaEkrans(){
     	
     //Grid izkārtojums
     JPanel panel = new JPanel();
-    panel.setLayout(new GridLayout(5, 1, 10, 10)); //GRID, maina pogas izkārtojumu un daudzumu (pirmais cipars vēlamo pogu daudzums)
+    panel.setLayout(new GridLayout(4, 1, 10, 10)); //GRID, maina pogas izkārtojumu un daudzumu (pirmais cipars vēlamo pogu daudzums)
     panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20 ,20));
     panel.setBackground(new Color(240, 240, 240));
     
@@ -123,15 +123,28 @@ public static void sakumaEkrans(){
     });
     
     btnAktivie.addActionListener(e -> {
-    	DarbsArFailu.nolasitAkt();
+    	 String[] aktivoIzv = { "Skatīt aktīvos pasūtījumus", "Pabeigt pasūtījumu"};
+    	 String izvele = (String)JOptionPane.showInputDialog(null, "metodes izvēle", "Izvēle", JOptionPane.QUESTION_MESSAGE, null, aktivoIzv, aktivoIzv[0]);
+    	 if(izvele == null) return;
+    	 
+    	 switch(izvele) {
+    	 case "Skatīt aktīvos pasūtījumus":
+    		 if(Pica.PicaList.isEmpty()) {  JOptionPane.showMessageDialog(null, "Nav aktīvu pasūtījumu!", "Kļūda",JOptionPane.WARNING_MESSAGE); return;}
+    		 	Pica.aktivieSutijumi();
+    		 break;
+    		 
+    	 case "Pabeigt pasūtījumu":
+    		 if (Pica.PicaList.isEmpty()) {
+                 JOptionPane.showMessageDialog(null, "Nav neviena pasūtījuma, ko nodot!", "Kļūda",JOptionPane.WARNING_MESSAGE); return;}
+              else
+                 Pica.aktivieSutijumi();
+             break;
+    	 }
+    	 
     });
     
     btnNodotie.addActionListener(e -> {
     	DarbsArFailu.nolasit();
-    });
-    
-    btnMetodes.addActionListener(e -> {
-        Pica.picaMetodes();
     });
     
     btnExit.addActionListener(e -> {
@@ -140,11 +153,10 @@ public static void sakumaEkrans(){
     
     //--------
     
-    //Pievieno pogu panelim
+    //Pievieno pogu panelim, pogu kārtība
     panel.add(btnNew);
     panel.add(btnAktivie);
     panel.add(btnNodotie);
-    panel.add(btnMetodes);
     panel.add(btnExit);    
     
     frame.add(panel);
@@ -308,7 +320,7 @@ public static void sakumaEkrans(){
     }
     
     public static void showProgressTimer(int seconds,  Runnable izcepts) {
-        JFrame frame = new JFrame("Picas cepšana");
+        JFrame frame = new JFrame("Pica gatavojas");
         frame.setSize(300, 120);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
