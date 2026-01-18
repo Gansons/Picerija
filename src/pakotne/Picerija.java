@@ -27,7 +27,7 @@ public class Picerija {
 public static void sakumaEkrans(){
 	JFrame frame = new JFrame("Pizza Cooker Menu");
 	
-    frame.setSize(400, 300);
+    frame.setSize(400, 500);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setLocationRelativeTo(null);
     
@@ -36,11 +36,13 @@ public static void sakumaEkrans(){
     title.setFont(new Font("Arial", Font.BOLD, 20));
     frame.add(title, BorderLayout.NORTH);
     	
+    //Grid izkārtojums
     JPanel panel = new JPanel();
-    panel.setLayout(new GridLayout(3, 1, 10, 10));
+    panel.setLayout(new GridLayout(5, 1, 10, 10)); //GRID, maina pogas izkārtojumu un daudzumu (pirmais cipars vēlamo pogu daudzums)
     panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20 ,20));
     panel.setBackground(new Color(240, 240, 240));
     
+    //Reģistrēt poga
     ImageIcon raw = new ImageIcon("Registret.png");
     Image scaled = raw.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
     ImageIcon icon = new ImageIcon(scaled);
@@ -48,7 +50,8 @@ public static void sakumaEkrans(){
     JButton btnNew = new JButton("Reģistrēt pasūtījumu", icon);
     btnNew.setHorizontalTextPosition(SwingConstants.RIGHT);
     btnNew.setIconTextGap(10);
-
+    
+    //Aktīvie poga
     raw = new ImageIcon("Aktivie.png");
     scaled = raw.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
     icon = new ImageIcon(scaled);
@@ -57,11 +60,30 @@ public static void sakumaEkrans(){
     btnAktivie.setHorizontalTextPosition(SwingConstants.RIGHT);
     btnAktivie.setIconTextGap(10);
     
+    //Nodotie poga
     raw = new ImageIcon("Nodotie.png");
     scaled = raw.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
     icon = new ImageIcon(scaled);
 
     JButton btnNodotie = new JButton("Nodotie pasūtījumi", icon);
+    btnNodotie.setHorizontalTextPosition(SwingConstants.RIGHT);
+    btnNodotie.setIconTextGap(10);
+    
+    //Metodes poga
+    raw = new ImageIcon("metodes.png");
+    scaled = raw.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+    icon = new ImageIcon(scaled);
+    
+    JButton btnMetodes = new JButton("Izsaukt picas metodes", icon);
+    btnNodotie.setHorizontalTextPosition(SwingConstants.RIGHT);
+    btnNodotie.setIconTextGap(10);
+    
+    //Iziet poga
+    raw = new ImageIcon("Exit.png");
+    scaled = raw.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+    icon = new ImageIcon(scaled);
+    
+    JButton btnExit = new JButton("Iziet", icon);
     btnNodotie.setHorizontalTextPosition(SwingConstants.RIGHT);
     btnNodotie.setIconTextGap(10);
     
@@ -71,9 +93,17 @@ public static void sakumaEkrans(){
     btnNew.setBackground(new Color(220, 220, 255));
     btnNew.setOpaque(false);
     
-    btnNew.addActionListener(e -> {
-        Pica.pasutijums();
-    });
+    //Metodes poga ==============
+    btnMetodes.setFocusPainted(false);
+    btnMetodes.setFont(new Font("Arial", Font.BOLD, 17));
+    btnMetodes.setBackground(new Color(220, 220, 255));
+    btnMetodes.setOpaque(false);
+    
+    //Exit poga ===========
+    btnExit.setFocusPainted(false);
+    btnExit.setFont(new Font("Arial", Font.BOLD, 17));
+    btnExit.setBackground(new Color(220, 220, 255));
+    btnExit.setOpaque(false);
 
     //Aktīvie poga
     btnAktivie.setFocusPainted(false);
@@ -81,32 +111,46 @@ public static void sakumaEkrans(){
     btnAktivie.setBackground(new Color(220, 220, 255));
     btnAktivie.setOpaque(false);
     
-    btnAktivie.addActionListener(e -> {
-    	DarbsArFailu.nolasitAkt();
-    });
-    
     //Nodotie poga
     btnNodotie.setFocusPainted(false);
     btnNodotie.setFont(new Font("Arial", Font.BOLD, 17));
     btnNodotie.setBackground(new Color(220, 220, 255));
     btnNodotie.setOpaque(false);
     
+    //Pogu darbības
+    btnNew.addActionListener(e -> {
+        Pica.pasutijums();
+    });
+    
+    btnAktivie.addActionListener(e -> {
+    	DarbsArFailu.nolasitAkt();
+    });
+    
     btnNodotie.addActionListener(e -> {
     	DarbsArFailu.nolasit();
     });
     
+    btnMetodes.addActionListener(e -> {
+        Pica.picaMetodes();
+    });
+    
+    btnExit.addActionListener(e -> {
+    	System.exit(0);
+    });
+    
+    //--------
+    
+    //Pievieno pogu panelim
     panel.add(btnNew);
-    
-    
-
     panel.add(btnAktivie);
     panel.add(btnNodotie);
-
+    panel.add(btnMetodes);
+    panel.add(btnExit);    
+    
     frame.add(panel);
     frame.setVisible(true);
 }
 
-	
 	public static class loading {
 
 		public static void show() {
@@ -131,17 +175,22 @@ public static void sakumaEkrans(){
 		}
 
 	}
-
-	static String virknesParbaude(String zinojums, String nokl) {
-        String ievade;
-        do {
-            ievade = JOptionPane.showInputDialog(null, zinojums, nokl);
-            if (ievade == null)
-                return null;
-            ievade = ievade.trim();
-        } while (!Pattern.matches("^[\\p{L} ]+$", ievade));
-        return ievade;
-    }
+	
+		public static int jautajums(String teksts) {
+		    return JOptionPane.showConfirmDialog(null, teksts, "Izvēle", JOptionPane.YES_NO_CANCEL_OPTION);
+		}
+	
+	
+		static String virknesParbaude(String zinojums, String nokl) {
+	        String ievade;
+	        do {
+	            ievade = JOptionPane.showInputDialog(null, zinojums, nokl);
+	            if (ievade == null)
+	                return null;
+	            ievade = ievade.trim();
+	        } while (!Pattern.matches("^[\\p{L} ]+$", ievade));
+	        return ievade;
+	    }
 	
 	public static String telParbaude(String zinojums, String noklusejums) {
 	    String ievade;
@@ -197,9 +246,9 @@ public static void sakumaEkrans(){
     static void pasutijums(String izmers, String Gala, String merce,
                              String adresse, String telefonaNR,
                              String 
-                             Vards, boolean siers, boolean lidznemt, boolean piegade, String topingi, String dzeriens, String uzkoda) {
+                             Vards, int siers, int lidznemt, boolean piegade, String topingi, String dzeriens, String uzkoda) {
 
-        double cena = aprekinatCenu(izmers, Gala, merce, topingi, lidznemt, piegade, siers, dzeriens, uzkoda);
+        double cena = aprekinatCenu(izmers, Gala, merce, topingi, siers, lidznemt, piegade, dzeriens, uzkoda);
 
         
         
@@ -215,12 +264,12 @@ public static void sakumaEkrans(){
                 "Gaļa: " + Gala + "\n" +
                 "Mērce: " + merce + "\n" +
                 "Topingi: "+ topingi + "\n" +
-                "Siers: " + (siers ? "Jā" : "Nē") + "\n\n" +
+                "Siers: " + (siers == 0 ? "Jā" : "Nē") + "\n" +
                 "Uzkodas/dzērieni:\n"+
                 "Dzēriens: "+ dzeriens + "\n" +
                 "Uzkodas: "+ uzkoda + "\n" +
                 "------\n"+
-                "Līdzņemšana: " + (lidznemt ? "Jā" : "Nē") + "\n" +
+                "Līdzņemšana: " + (lidznemt == 0? "Jā" : "Nē") + "\n" +
                 "Piegāde: " + (piegade ? "Jā" : "Nē") + "\n\n" +
                 "Cena: " + cena + " EUR\n" +
                 "=========================\n" +
@@ -230,7 +279,7 @@ public static void sakumaEkrans(){
     }
 
     static double aprekinatCenu(String izmers, String Gala, String merce, String topingi,
-                                boolean siers, boolean lidznemt, boolean piegade, String dzeriens , String uzkoda) {
+                                int siers, int lidznemt, boolean piegade, String dzeriens , String uzkoda) {
     	if (izmers == null) izmers = "";
     	if (Gala == null) Gala = "";
     	if (merce == null) merce = "";
@@ -241,9 +290,10 @@ public static void sakumaEkrans(){
         double cena = 5.0;
 
         switch (izmers.toUpperCase()) {
-            case "L (24\\\")": cena += 6; break;
-            case "M (18\\\")": cena += 4; break;
-            case "S (15\\\")": cena += 2; break;
+	        case "L (24\")": cena += 6; break;
+	        case "M (18\")": cena += 4; break;
+	        case "S (15\")": cena += 2; break;
+
         }
 
         if (!Gala.equalsIgnoreCase("Bez gaļas")) cena += 1.5;
@@ -251,7 +301,7 @@ public static void sakumaEkrans(){
         if(!topingi.contains("Bez topingiem")) cena += 1.0;
         if(!dzeriens.contains("Bez dzeramā")) cena += 1.5;
         if(!uzkoda.contains("Bez uzkodas")) cena += 3.0;
-        if (siers) cena += 1.0;
+        if (siers == 0) cena += 1.0;
         if (piegade) cena += 2.0;
 
         return cena;

@@ -8,8 +8,8 @@ public class pizza {
 	private String adresse;
 	private String telefonaNR;
 	private String Vards;
-	private boolean siers;
-	private boolean lidznemt;
+	private int siers;
+	private int lidznemt;
 	private boolean piegade;
 	private String topingi;
 	private String dzeriens;
@@ -18,7 +18,7 @@ public class pizza {
 	
 	//Konstruktors
 	public pizza(String izmers, String gala, String merce, String adresse, String telefonaNR, String Vards,
-			 boolean siers, boolean lidznemt, boolean piegade, String topingi, String dzeriens,
+			 int siers, int lidznemt, boolean piegade, String topingi, String dzeriens,
 			String uzkoda) {
 		this.izmers = izmers;
 		this.gala = gala;
@@ -55,10 +55,10 @@ public class pizza {
 		public String noteiktVardu(){
 			return Vards;	
 		}
-		public boolean noteiktSiers(){
+		public int noteiktSiers(){
 			return siers;	
 		}
-		public boolean noteiktLidz(){
+		public int noteiktLidz(){
 			return lidznemt;	
 		}
 		public boolean noteiktPiegade(){
@@ -89,12 +89,12 @@ public class pizza {
                 "Gaļa: " + gala + "\n" +
                 "Mērce: " + merce + "\n" +
                 "Topingi: "+ topingi + "\n" +
-                "Siers: " + (siers ? "Jā" : "Nē") + "\n\n" +
+                "Siers: " + (siers == 0 ? "Jā" : "Nē") + "\n" +
                 "Uzkodas/dzērieni:\n"+
                 "Dzēriens: "+ dzeriens + "\n" +
                 "Uzkodas: "+ uzkoda + "\n" +
                 "------\n"+
-                "Līdzņemšana: " + (lidznemt ? "Jā" : "Nē") + "\n" +
+                "Līdzņemšana: " + (lidznemt == 0 ? "Jā" : "Nē") + "\n" +
                 "Piegāde: " + (piegade ? "Jā" : "Nē") + "\n\n" +
                 "Cena: " + Picerija.aprekinatCenu(izmers, gala, merce, topingi, siers, lidznemt, piegade, dzeriens, uzkoda) + " EUR\n" +
                 "=========================\n" +
