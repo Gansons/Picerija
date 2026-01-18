@@ -135,7 +135,7 @@ public class Pica {
   		    int index = Integer.parseInt(izvele.split("\\.")[0]) - 1;
   		    pizza p = PicaList.get(index);
 
-  		    String[] opcijas = {"Izpildīt", "Nodot", "Atpakaļ"};
+  		    String[] opcijas = {"Izcept", "Nodot", "Atpakaļ"};
   		    String darbiba = (String) JOptionPane.showInputDialog(
   		            null, p.toString(),"Pasūtījuma darbības", JOptionPane.QUESTION_MESSAGE,null, opcijas,opcijas[0]);
 
@@ -153,12 +153,12 @@ public class Pica {
 
 
 	public static void main(String[] args) {
-		
+
 		//Sākuma ekrāna ielāde 
-		Picerija.loading.show();
-		
+		ui.loading.show();
+
 		//Sākuma ekrāns
-		Picerija.sakumaEkrans();
+		ui.sakumaEkrans();
 
 		
 	}

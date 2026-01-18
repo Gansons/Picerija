@@ -94,3 +94,27 @@ Cena: 11.0 EUR
 =========================
 Paldies par pasūtījumu!]
 +++++++++++++++++++++++++++++++++++++++++++++
+[Picas pasūtījums
+=========================
+Klients: Jānis
+Telefons: Nav
+Adrese: Nav
+
+------
+Pica: 
+Izmērs: M (18")
+Gaļa: Krokodils
+Mērce: Ķiploku mērce
+Topingi: Banāni
+Siers: Jā
+Uzkodas/dzērieni:
+Dzēriens: Kola
+Uzkodas: friškas
+------
+Līdzņemšana: Jā
+Piegāde: Nē
+
+Cena: 17.5 EUR
+=========================
+Paldies par pasūtījumu!]
++++++++++++++++++++++++++++++++++++++++++++++

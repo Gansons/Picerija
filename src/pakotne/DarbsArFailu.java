@@ -51,7 +51,6 @@ static String AktiviePasut = "AktiviePas.txt";
 			}
 	}
 	
-	
 	public static void nolasitAkt() {
 		String teksts, str = "";
 		try {
